@@ -9,11 +9,10 @@ pipeline {
         }
         stage('Build Maven') {
             steps {
-                dir('smd_project') {
                     sh 'mvn clean package'
                 }
             }
-        }
+        
         stage('Test') {
             steps {
                 sh 'mvn test'
@@ -21,17 +20,17 @@ pipeline {
         }
         stage('Compile Java') {
             steps {
-                dir('smd_project') {
+               
                     sh 'javac src/main/java/com/example/SimpleJavaApp.java'
                 }
             }
-        }
+        
         stage('Run Java Application') {
             steps {
-                dir('smd_project') {
+                
                     sh 'java -cp src/main/java/com/example/SimpleJavaApp'
                 }
             }
-        }
+        
     }
 }
