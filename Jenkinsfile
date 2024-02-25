@@ -17,6 +17,16 @@ pipeline {
                 sh 'mvn test'
             }
         }
+         stage('Compile Java') {
+            steps {
+                sh 'javac src/main/java/com/example/SimpleJavaApp.java'
+            }
+        }
+        stage('Run Java Application') {
+            steps {
+                sh 'java -cp src/main/java com.example.SimpleJavaApp'
+            }
+        }
     }
 }
 
