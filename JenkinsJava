@@ -15,23 +15,19 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                dir('smd_project') {
+            steps  {
                     sh 'mvn test'
                 }
             }
         }
         stage('Compile Java') {
-            steps {
-                dir('smd_project') {
+            steps 
                     sh 'javac src/main/java/com/example/SimpleJavaApp.java'
                 }
             }
         }
         stage('Run Java Application') {
             steps {
-                dir('smd_project') {
-                    // Correcting the classpath to include the root of the package structure
                     sh 'java -cp src/main/java com.example.SimpleJavaApp'
                 }
             }
