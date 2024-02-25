@@ -15,20 +15,21 @@ pipeline {
             }
         }
         stage('Test') {
-            steps  {
-                    sh 'mvn test'
-                }
+            steps {
+                sh 'mvn test'
             }
         }
         stage('Compile Java') {
-            steps 
+            steps {
+                dir('smd_project') {
                     sh 'javac src/main/java/com/example/SimpleJavaApp.java'
                 }
             }
         }
         stage('Run Java Application') {
             steps {
-                    sh 'java  src/main/java/com/example/SimpleJavaApp'
+                dir('smd_project') {
+                    sh 'java -cp src/main/java/com/example/SimpleJavaApp'
                 }
             }
         }
