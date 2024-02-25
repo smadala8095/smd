@@ -24,7 +24,8 @@ pipeline {
         }
         stage('Run Java Application') {
             steps {
-                sh 'java -cp src/main/java com.example.SimpleJavaApp'
+                sh 'java -cp target/classes com.example.SimpleJavaApp
+'
             }
         }
     }
