@@ -16,6 +16,10 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
+            stage('Test') {
+            steps {
+                sh 'java SimpleJavaApp'
+            }
         }
     }
 }
