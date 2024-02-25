@@ -21,14 +21,14 @@ pipeline {
         stage('Compile Java') {
             steps {
                
-                    sh 'javac /var/lib/jenkins/workspace/demo/src/main/java/com/example/SimpleJavaApp.java'
+                    //sh 'javac /var/lib/jenkins/workspace/demo/src/main/java/com/example/SimpleJavaApp.java'
                 }
             }
         
         stage('Run Java Application') {
             steps {
                 
-                    sh 'java /var/lib/jenkins/workspace/demo/src/main/java/com/example/SimpleJavaApp'
+                   sh 'java -cp target/classes com.example.SimpleJavaApp'
                 }
             }
         
