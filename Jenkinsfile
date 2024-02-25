@@ -4,38 +4,19 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Cloning the repository into a specific directory
-                sh 'git clone https://github.com/smadala8095/smd.git smd_project'
+                git 'https://github.com/smadala8095/my-java-project.git'
             }
         }
-        stage('Build Maven') {
+        stage('Build') {
             steps {
-                // Navigate to the project directory before executing Maven commands
-                dir('smd_project') {
-                    sh 'mvn clean package'
-                }
+                sh 'mvn clean package'
             }
         }
         stage('Test') {
             steps {
-                dir('smd_project') {
-                    sh 'mvn test'
-                }
-            }
-        }
-        stage('Compile Java') {
-            steps {
-                dir('smd_project') {
-                    sh 'javac src/main/java/com/example/SimpleJavaApp.java'
-                }
-            }
-        }
-        stage('Run Java Application') {
-            steps {
-                dir('smd_project') {
-                    sh 'java -cp target/classes com.example.SimpleJavaApp'
-                }
+                sh 'mvn test'
             }
         }
     }
 }
+
