@@ -17,6 +17,12 @@ pipeline {
                 sh 'mvn test'
             }
         }
+		
+		  stage('Build') {
+            steps {
+                sh 'javac SimpleJavaApp.java'
+            }
+        }
         stage('Compile') {
             steps {
                 sh 'java -cp target/classes com.example.SimpleJavaApp'
