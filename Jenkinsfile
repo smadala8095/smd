@@ -19,12 +19,12 @@ pipeline {
         }
          stage('Compile Java') {
             steps {
-                sh 'javac src/main/java/com/example/SimpleJavaApp.java'
+                sh  sudo 'javac src/main/java/com/example/SimpleJavaApp.java'
             }
         }
         stage('Run Java Application') {
             steps {
-                sh 'java src/main/java/com/example/SimpleJavaApp'
+                sh sudo 'java src/main/java/com/example/SimpleJavaApp'
             }
         }
     }
