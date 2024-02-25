@@ -7,7 +7,7 @@ pipeline {
                 git 'https://github.com/smadala8095/smd.git'
             }
         }
-        stage('Build') {
+        stage('Build Maven') {
             steps {
                 sh 'mvn clean package'
             }
@@ -17,15 +17,14 @@ pipeline {
                 sh 'mvn test'
             }
         }
-		
-		  stage('Build') {
+        stage('Compile Java') {
             steps {
-                sh 'javac SimpleJavaApp.java'
+                sh 'javac src/main/java/com/example/SimpleJavaApp.java'
             }
         }
-        stage('Compile') {
+        stage('Run Java Application') {
             steps {
-                sh 'java -cp target/classes com.example.SimpleJavaApp'
+                sh 'java -cp src/main/java com.example.SimpleJavaApp'
             }
         }
     }
