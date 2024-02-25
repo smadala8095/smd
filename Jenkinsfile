@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                sh 'git clone https://github.com/smadala8095/smd.git
+                sh 'git clone https://github.com/smadala8095/smd.git'
             }
         }
         stage('Build Maven') {
